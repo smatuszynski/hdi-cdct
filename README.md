@@ -1,2 +1,11 @@
-# hdi-cdct
-CDCT demo project
+# HDI - Test Driven Development / Consumer Driven Contract Testing
+
+Das Demo Projekt ist ein einfacher Bibliotheksservice um Bücher zu verwalten.
+
+Es gibt folgende Branches:
+* main - Projektbeschreibung
+* 1-start - Die Applikation
+* 2-tdd - Die Applikation inkl. unit tests
+* 3-cdct-contract - Die Applikation inkl. Vertrag
+* 3-cdct-contract-tests Die Applikation inkl. Vertrag und Contract Tests
+* 4-cdct-new-additional-contract-tests Lösung der Übungsaufgabe
