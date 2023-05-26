@@ -7,5 +7,5 @@ Es gibt folgende Branches:
 * 1-start - Die Applikation
 * 2-tdd - Die Applikation inkl. unit tests
 * 3-cdct-contract - Die Applikation inkl. Vertrag
-* 3-cdct-contract-tests Die Applikation inkl. Vertrag und Contract Tests
-* 4-cdct-new-additional-contract-tests Lösung der Übungsaufgabe
+* 4-cdct-contract-tests Die Applikation inkl. Vertrag und Contract Tests
+* 5-cdct-new-additional-contract-tests Lösung der Übungsaufgabe
