@@ -68,23 +68,14 @@
       <extensions>true</extensions>
       <configuration>
         <baseClassForTests>de.hdi.cdct.book.BaseTest</baseClassForTests>
-<!--        <contractsMode>LOCAL</contractsMode>
-        <contractsRepositoryUrl>
-          https://link/to/your/nexus/or/artifactory/or/sth
-        </contractsRepositoryUrl>
-        <contractDependency>
-          <groupId>de.hdi.cdct</groupId>
-          <artifactId>book-store-server</artifactId>
-          <classifier>stubs</classifier>
-        </contractDependency> -->
       </configuration>
     </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-      </plugin>
-    </plugins>
-  </build>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+    </plugin>
+  </plugins>
+</build>
 
 </project>

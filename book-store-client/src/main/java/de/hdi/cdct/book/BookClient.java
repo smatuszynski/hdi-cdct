@@ -1,6 +1,7 @@
 package de.hdi.cdct.book;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
@@ -8,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 import javax.annotation.PostConstruct;
@@ -41,5 +43,18 @@ public class BookClient {
       .block();
 
     return availableBooks;
+  }
+
+  public JsonNode addBook(Book book) {
+
+    JsonNode newBook = webClient.post()
+        .uri("/books")
+        .body(Mono.just(book), Book.class)
+        .accept(MediaType.APPLICATION_JSON)
+        .retrieve()
+        .bodyToMono(JsonNode.class)
+        .block();
+
+    return newBook;
   }
 }

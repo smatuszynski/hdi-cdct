@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -17,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class BookClientTest {
 
   @Autowired
-  private BookClient cut;
+  private BookClient bookclient;
 
   @Test
   void testContractToBookStoreServer() {
 
-    JsonNode result = cut.getAllAvailableBooks();
+    JsonNode result = bookclient.getAllAvailableBooks();
 
     assertTrue(result.isArray());
 
@@ -34,5 +35,24 @@ class BookClientTest {
     assertTrue(firstBook.get("isbn").isNumber());
     assertTrue(firstBook.get("genre").isTextual());
     assertTrue(firstBook.get("title").isTextual());
+    assertEquals(42, firstBook.get("isbn").asInt());
+  }
+
+  @Test
+  void addBook() {
+    Book book = new Book();
+    book.setIsbn("4711");
+    book.setTitle("Java 12");
+    book.setGenre("Technology");
+
+    JsonNode result = bookclient.addBook(book);
+
+    assertTrue(result.has("genre"));
+    assertTrue(result.has("title"));
+    assertTrue(result.has("isbn"));
+    assertTrue(result.get("isbn").isNumber());
+    assertTrue(result.get("genre").isTextual());
+    assertTrue(result.get("title").isTextual());
+    assertEquals(4711, result.get("isbn").asInt());
   }
 }
