@@ -33,6 +33,8 @@
 @REM MAVEN_SKIP_RC - flag to disable loading of mavenrc files
 @REM ----------------------------------------------------------------------------
 
+set MAVEN_OPTS=-Dhttp.proxyHost=172.21.117.7 -Dhttp.proxyPort=3128 -Dhttps.proxyHost=172.21.117.7 -Dhttps.proxyPort=3128
+
 @REM Begin all REM lines with '@' in case MAVEN_BATCH_ECHO is 'on'
 @echo off
 @REM set title of command window
@@ -137,7 +139,7 @@ if exist %WRAPPER_JAR% (
 )
 @REM End of extension
 
-%MAVEN_JAVA_EXE% %JVM_CONFIG_MAVEN_PROPS% %MAVEN_OPTS% %MAVEN_DEBUG_OPTS% -classpath %WRAPPER_JAR% "-Dmaven.multiModuleProjectDirectory=%MAVEN_PROJECTBASEDIR%" %WRAPPER_LAUNCHER% %MAVEN_CONFIG% %*
+%MAVEN_JAVA_EXE% %JVM_CONFIG_MAVEN_PROPS% %MAVEN_OPTS% %MAVEN_DEBUG_OPTS% -classpath %WRAPPER_JAR% "-Dmaven.multiModuleProjectDirectory=%MAVEN_PROJECTBASEDIR%" %WRAPPER_LAUNCHER% %MAVEN_CONFIG% -s settings.xml %*
 if ERRORLEVEL 1 goto error
 goto end
 
