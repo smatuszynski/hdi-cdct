@@ -10,16 +10,11 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
 public abstract class BaseTest {
-  @Mock
-  private BookService mockedBookService;
+  private BookService mockedBookService = new BookService();
 
   @BeforeEach
   void setup() {
-    when(mockedBookService.getBooks())
-      .thenReturn(List.of(new Book("Java 11", "Technology", "42")));
-
     RestAssuredMockMvc.standaloneSetup(new BookController(mockedBookService));
   }
 }

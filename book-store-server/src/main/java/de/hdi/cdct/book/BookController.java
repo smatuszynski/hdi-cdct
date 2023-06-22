@@ -2,6 +2,8 @@ package de.hdi.cdct.book;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,7 +18,12 @@ public class BookController {
   }
 
   @GetMapping("/books")
-  public ResponseEntity<List<Book>> getTodos() {
+  public ResponseEntity<List<Book>> getBooks() {
     return ResponseEntity.ok(bookService.getBooks());
+  }
+
+  @PostMapping("/books")
+  public ResponseEntity<Book> addBook(@RequestBody Book book) {
+    return ResponseEntity.ok(bookService.addBook(book));
   }
 }
