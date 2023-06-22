@@ -21,9 +21,4 @@ public class BookController {
   public ResponseEntity<List<Book>> getBooks() {
     return ResponseEntity.ok(bookService.getBooks());
   }
-
-  @PostMapping("/books")
-  public ResponseEntity<Book> addBook(@RequestBody Book book) {
-    return ResponseEntity.ok(bookService.addBook(book));
-  }
 }

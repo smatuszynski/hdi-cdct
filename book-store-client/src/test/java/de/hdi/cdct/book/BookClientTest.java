@@ -37,22 +37,4 @@ class BookClientTest {
     assertTrue(firstBook.get("title").isTextual());
     assertEquals(42, firstBook.get("isbn").asInt());
   }
-
-  @Test
-  void addBook() {
-    Book book = new Book();
-    book.setIsbn("4711");
-    book.setTitle("Java 12");
-    book.setGenre("Technology");
-
-    JsonNode result = bookclient.addBook(book);
-
-    assertTrue(result.has("genre"));
-    assertTrue(result.has("title"));
-    assertTrue(result.has("isbn"));
-    assertTrue(result.get("isbn").isNumber());
-    assertTrue(result.get("genre").isTextual());
-    assertTrue(result.get("title").isTextual());
-    assertEquals(4711, result.get("isbn").asInt());
-  }
 }

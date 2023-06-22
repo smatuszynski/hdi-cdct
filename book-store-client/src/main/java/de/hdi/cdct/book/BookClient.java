@@ -44,17 +44,4 @@ public class BookClient {
 
     return availableBooks;
   }
-
-  public JsonNode addBook(Book book) {
-
-    JsonNode newBook = webClient.post()
-        .uri("/books")
-        .body(Mono.just(book), Book.class)
-        .accept(MediaType.APPLICATION_JSON)
-        .retrieve()
-        .bodyToMono(JsonNode.class)
-        .block();
-
-    return newBook;
-  }
 }
