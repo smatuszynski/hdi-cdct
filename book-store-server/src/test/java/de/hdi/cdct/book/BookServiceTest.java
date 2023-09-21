@@ -12,4 +12,15 @@ public class BookServiceTest {
   void setup() {
     bookService = new BookService();
   }
+
+  @Test
+  void addBook() {
+    Book newBook = new Book();
+    newBook.setIsbn("4711");
+
+    Book actualBook = bookService.addBook(newBook);
+
+    assertEquals(newBook, actualBook);
+    assertEquals(newBook, bookService.get("4711"));
+  }
 }

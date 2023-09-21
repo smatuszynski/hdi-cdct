@@ -28,4 +28,9 @@ public class BookService {
   public List<Book> getBooks() {
     return new ArrayList<>(books.values());
   }
+
+  public Book addBook(Book newBook) {
+    books.put(newBook.getIsbn(), newBook);
+    return newBook;
+  }
 }
