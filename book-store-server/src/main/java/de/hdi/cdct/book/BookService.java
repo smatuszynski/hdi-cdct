@@ -30,6 +30,19 @@ public class BookService {
   }
 
   public Book addBook(Book newBook) {
+    if (newBook == null) {
+      throw new IllegalArgumentException("Parameter darf nicht null sein.");
+    }
+    if (newBook.getIsbn() == null || newBook.getIsbn().isEmpty()) {
+      throw new IllegalArgumentException("ISBN darf nicht leer sein.");
+    }
+    if (newBook.getTitle() == null || newBook.getTitle().isEmpty()) {
+      throw new IllegalArgumentException("Titel darf nicht leer sein.");
+    }
+    if (newBook.getGenre() == null || newBook.getGenre().isEmpty()) {
+      throw new IllegalArgumentException("Genre darf nicht leer sein.");
+    }
+
     books.put(newBook.getIsbn(), newBook);
     return newBook;
   }
