@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class BookService {
@@ -22,12 +21,11 @@ public class BookService {
       books.put(book.getIsbn(), book);
   }
 
-  public List<Book> getBooks() {
-    return new ArrayList<>(books.values());
+  public Book get(String isbn) {
+    return books.get(isbn);
   }
 
-  public Book addBook(Book book) {
-    books.put(book.getIsbn(), book);
-    return book;
+  public List<Book> getBooks() {
+    return new ArrayList<>(books.values());
   }
 }
