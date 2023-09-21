@@ -15,11 +15,14 @@ public class BookServiceTest {
 
   @Test
   void addBook() {
+    // GIVEN
     Book newBook = new Book();
     newBook.setIsbn("4711");
 
+    // WHEN
     Book actualBook = bookService.addBook(newBook);
 
+    // THEN
     assertEquals(newBook, actualBook);
     assertEquals(newBook, bookService.get("4711"));
   }
